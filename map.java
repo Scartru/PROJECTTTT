@@ -1,15 +1,14 @@
 import java.util.Scanner;
 
-public class map {
+public class Map {
     private static int[][] map = {
         {1, 1, 0, 1, 0},
-        {0, 1, 0, 0, 0},
+        {0, 1, 0, 1, 0},
         {1, 1, 1, 1, 0},
         {0, 0, 0, 1, 1},
         {0, 1, 0, 0, 1}
     };
-    private int row = 2;
-    private int column = 0;
+
     private static Scanner scanner = new Scanner(System.in);
 
     public void movePlayer(String direction) {
@@ -42,8 +41,9 @@ public class map {
             System.out.println("that direction is not valid");
         }
     }
-}
 
+
+}
 
 
 
