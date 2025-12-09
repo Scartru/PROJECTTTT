@@ -1,49 +1,42 @@
-import java.util.Scanner;
+
+import java.util.ArrayList;
 
 public class Map {
-    private static int[][] map = {
-        {1, 1, 0, 1, 0},
-        {0, 1, 0, 1, 0},
-        {1, 1, 1, 1, 0},
-        {0, 0, 0, 1, 1},
-        {0, 1, 0, 0, 1}
-    };
+    ArrayList <Room>map;
 
-    private static Scanner scanner = new Scanner(System.in);
 
-    public void movePlayer(String direction) {
+    public Map(){
+        this.map = new ArrayList<>();
 
-        if(direction.equals("East")){
-            if (map[row][column++] == 1){
-            column++;
-            } else{
-                System.out.println("you cannot move here");
-            }
-        } else if(direction.equals("West")){
-            if (map[row][column--] == 1){
-            column--;
-            } else{
-                System.out.println("you cannot move here");
-            }
-        } else if(direction.equals("South")){
-            if (map[row++][column] == 1){
-            row++;
-            } else{
-                System.out.println("you cannot move here");
-            }
-        } else if(direction.equals("North")){
-            if (map[row--][column] == 1){
-            row--;
-            } else{
-                System.out.println("you cannot move here");
-            }
-        } else {
-            System.out.println("that direction is not valid");
-        }
+        this.map.add(new Room("Port-a-Potty", "Stinky", -1, 2, -1, -1));
+        this.map.add(new Room("r", "Stinky as hell here... why is there no door...", Direction.NOEXIT, 6, 2, Direction.NOEXIT));
+
+        this.map.add(new Room("r", "Stinky", 1, 7, 3, 0));
+
+        this.map.add(new Room("r", "Stinky", -1, 2, -1, 1));
+        this.map.add(new Room("r", "Stinky", -1, 2, Direction.NOEXIT, 1));
+        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
+        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
+        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
+        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
+        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
+        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
+        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
+        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
+        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
+        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
+        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
+
     }
 
 
-}
+    public ArrayList<Room> getMap() {
+        return map;
+    }
 
+    public Room getRoom(int n){
+        return this.map.get(n);
+    }
 
-
+     
+    }
