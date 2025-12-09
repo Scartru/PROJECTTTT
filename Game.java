@@ -1,4 +1,8 @@
 import java.util.*;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 
 public class Game extends UserInput{ 
 
@@ -15,14 +19,15 @@ public class Game extends UserInput{
   
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
         Game game = new Game();
         game.run();
     }
         
-    public void run(){
+    public void run() throws IOException{
         boolean stillPlaying = true;
-        Scanner userInput = new Scanner(System.in);
+        BufferedReader in;
+        in = new BufferedReader(new InputStreamReader(System.in));
         String userResponse = "";
 
         Map map = new Map();
@@ -38,9 +43,8 @@ public class Game extends UserInput{
             System.out.println("clownSameRoom?");
             System.out.println(currentRoom.getDescription());
 
-            userResponse = userInput.nextLine().toUpperCase();
+            UserInput.waitingForWords(in);
             ///single player action hsappens in parsing whatever class 
-            completeAction(userResponse);
             ///updates clown
             clown.moveRandomly(map);
             
@@ -58,7 +62,6 @@ public class Game extends UserInput{
 
         } while (stillPlaying);
 
-        userInput.close();
 
         if (status == true){
             System.out.println("YAYYYYYY YOU LIVE TO SEE ANOTHER BEAUTIFUL DAY");
