@@ -83,6 +83,19 @@ public class UserInput {
             }
         }
         }
+
+    public static void waitingForWords(BufferedReader br)throws IOException{
+        String input;
+        String output;
+
+        do {
+            System.out.print("*** ");
+            input = br.readLine();
+            output = runCommand(input);
+            System.out.println(output);
+        } while (!"q".equals(input));
+    }
+    
     //     if(verb=="grab"){
     //         //insert grab action here
     //         if(noun=="sword")
@@ -92,17 +105,11 @@ public class UserInput {
 
     public static void main(String[] args) throws IOException {
         BufferedReader in;
-        String input;
-        String output;
+        
 
         in = new BufferedReader(new InputStreamReader(System.in));
-        do {
-            System.out.print("*** ");
-            input = in.readLine();
-            output = runCommand(input);
-            System.out.println(output);
-        } while (!"q".equals(input));
-    }
-
+        waitingForWords(in);
+        
+}
 }
 

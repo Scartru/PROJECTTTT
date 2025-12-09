@@ -17,15 +17,19 @@ public class Map {
         this.map.add(new Room("r", "Stinky", -1, 3, -1, -1, "red key"));
         this.map.add(new Room("r", "Stinky", -1, -1, -1, -1, "SR", "green key"));
         this.map.add(new Room("r", "Stinky", -1, -1, 7, 1));
-        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
-        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
-        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
-        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
-        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
-        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
-        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
-        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
-        this.map.add(new Room("r", "Stinky", Direction.NOEXIT, 2, Direction.NOEXIT, 1));
+        this.map.add(new Room("r", "Stinky", 6, 11, 8, 2));
+        this.map.add(new Room("r", "Stinky", 7, -1, 9, 3));
+        this.map.add(new Room("r", "Stinky", 8, 13, 10, -1));
+        this.map.add(new Room("r", "Stinky", 9, 14, -1, -1));
+        this.map.add(new Room("r", "Stinky", -1, 15, -1, 7, "SG"));
+        this.map.add(new Room("r", "Stinky", -1, -1, -1, -1, "NG", "Blue Key"));
+        this.map.add(new Room("r", "Stinky", -1, 17, -1, 9));
+        this.map.add(new Room("r", "Stinky", -1, -1, -1, 10, "EB"));
+        this.map.add(new Room("r", "Stinky", -1, -1, 16, -1));
+        this.map.add(new Room("r", "Stinky", 15, -1, 17, -1));
+        this.map.add(new Room("r", "Stinky", 16, -1, -1, 13, "E Sewer"));
+        this.map.add(new Room("r", "Stinky", -1, -1, -1, -1, "CuB","Crowbar"));
+        this.map.add(new Room("r", "Stinky", -1, -1, -1, -1, "W Sewer"));
 
     }
 
