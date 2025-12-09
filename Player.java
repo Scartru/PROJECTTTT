@@ -20,4 +20,20 @@ class Player extends Person {
         this.inventory = inventory;
     }
 
+
+    public void drop(String name, Room room){
+        if (inventory.containsKey(name)){
+            inventory.put(name, false);
+            room.addObject(name);
+        }
+
+    }
+
+    public void pickUp(String name){
+        if (inventory.containsKey(name)){
+            inventory.put(name, true);
+            room.removeObject(name);
+        }
+    }
+
 }

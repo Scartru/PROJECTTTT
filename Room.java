@@ -4,40 +4,30 @@ public class Room extends Definition {
     private int e;
     private int s;
     private int w;
+    private String object;
+    private Door door;
 
-    public Room(String name, String description, int n, int e, int s, int w, Door door){
+
+     public Room(String name, String description, int n, int e, int s, int w, String object){
         super(name, description);
         this.n= n;
         this.e= e;
         this.s= s;
         this.w= w;
-    }
-
-     public Room(String name, String description, int n, int e, int s, int w, Object Object){
-        super(name, description);
-        this.n= n;
-        this.e= e;
-        this.s= s;
-        this.w= w;
+        this.object= object;
 
     }
-    public Room(String name, String description, int n, int e, int s, int w, Door door, Object Object){
+    public Room(String name, String description, int n, int e, int s, int w, String object, Door door){
         super(name, description);
         this.n= n;
         this.e= e;
         this.s= s;
         this.w= w;
+        this.object = object;
+        this.door = door;
         
     }
-    
 
-    public Room(String name, String description, int n, int e, int s, int w){
-        super(name, description);
-        this.n= n;
-        this.e= e;
-        this.s= s;
-        this.w= w;
-    }
     public int getN() {
         return n;
     }
@@ -70,4 +60,13 @@ public class Room extends Definition {
         this.w = w;
     }
     
+    public void addObject(String object){
+        this.object = object;
+    }
+
+    public void removeObject(String object){
+        this.object = "";
+    }
+
+
 }

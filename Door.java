@@ -1,36 +1,50 @@
 class Door extends Definition{
     private String color;
     private String direction;
+    private String returnDirection;
+    private int room1;
+    private int room2;
+    private String key;
     private Boolean isLocked;
-    private String keyName;
 
-    public Door(String name, String description, String keyName, String color, String direction, String returnDirection) {
+    public Door(String name, String description, String direction, String returnDirection, int room1, int room2, String key) {
         super(name, description); 
-        this.keyName = keyName;
-        this.color = color;
         this.direction = direction;
+        this.returnDirection = returnDirection;
+        this.room1 = room1;
+        this.room2 = room2;
+        this.key = key;
         this.isLocked = true;
-    }
-
-    public String getColor() {
-        return color;   
     }
 
     public boolean isLocked() {
         return isLocked; 
     }
 
-    public void unlock(String keyName) { 
-        if 
-        isLocked = false; 
-
+    private void setExit(Room room, String dir, int target){
+        switch (dir) {
+        case "NORTH" -> room.setN(target);
+        case "EAST"  -> room.setE(target);
+        case "SOUTH" -> room.setS(target);
+        case "WEST"  -> room.setW(target);
     }
-    public static void main(String[] args) {
-        Door redDoor = new Door("Red", "Red Door", "Red Key", "mysterious", "North", "South");
-        Door greenDoor = new Door("Green", "Green Door", "Green Key", "weird door","South", "North");
-        Door blueDoor = new Door("Blue", "Blue Door", "Blue Key", "cool door", "East", "West");
-
     }
-    
-    
-}
+
+    public void unlock(String objKey, Map map) { 
+        if (!isLocked) return;
+         
+        if(objKey.equals(key)){
+            isLocked = false;
+
+            Room r1= map.getRoom(room1);
+            Room r2 = map.getRoom(room2);
+
+            setExit(r1, direction, room2);
+            setExit(r2, returnDirection, room1);
+
+            }
+        }
+    }
+
+
+
