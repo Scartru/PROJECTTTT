@@ -1,4 +1,6 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Game { 
 
@@ -13,32 +15,30 @@ public class Game {
   
     }
 
-    public static void main(String[] args){
-        boolean stillPlaying = true;
-        Scanner userInput = new Scanner(System.in);
-        String userResponse = "";
+    public static void main(String[] args) throws IOException{
+        // boolean stillPlaying = true;
+        // BufferedReader in;
+        // in = new BufferedReader(new InputStreamReader(System.in));
+        // String userResponse = "";
 
-        Map map = new Map();
-        Player player = new Player("Player", map.getRoom(0));
-        Clown clown = new Clown("Clown", map.getRoom(10));
+        // Map map = new Map();
+        // Player player = new Player("Player", map.getRoom(0));
+        // Clown clown = new Clown("Clown", map.getRoom(10));
 
-        System.out.println("A clown is looking for you... Escape!!!");
+        // System.out.println("A clown is looking for you... Escape!!!");
             
         do { 
-            Room currentRoom = player.getRoom();
-            Room clownCurrentRoom = clown.getRoom();
+            // Room currentRoom = player.getRoom();
+            // Room clownCurrentRoom = clown.getRoom();
             System.out.println("You are still playing. Follow the instructions if you want to win/lose...");
             System.out.println("clownSameRoom?");
-            System.out.println(currentRoom.getDescription());
+            // System.out.println(currentRoom.getDescription());
 
-            userResponse = userInput.nextLine().toUpperCase();
-            parseUserResponse(userResponse);////!!!!!!!!!!!
-            ///single player action hsappens in parsing whatever class 
-            player.
+            UserInput.waitingForWords(in);
 
 
             ///updates clown
-            clown.moveRandomly(map);
+            // clown.moveRandomly(map);
             
             
         } while (stillPlaying);
