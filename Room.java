@@ -13,7 +13,7 @@ public class Room extends Definition {
         this.w= w;
     }
 
-     public Room(String name, String description, int n, int e, int s, int w, Object Object){
+    public Room(String name, String description, int n, int e, int s, int w, Object Object){
         super(name, description);
         this.n= n;
         this.e= e;
