@@ -13,8 +13,8 @@ public class Game{
 
     public Game(){
         this.map = new Map();
-        this.player = new Player("Player", map.getRoom(0));
-        this.clown = new Clown("Clown", map.getRoom(10));
+        this.player = new Player("Player", map.getRoom(17));
+        this.clown = new Clown("Clown", map.getRoom(9));
     }
 
     public void move(Direction direction){
@@ -31,6 +31,10 @@ public class Game{
 
     public void unlockDoor(Door door, String keyName){
         door.unlock(keyName, map, player.getRoom(), player.getInventory());
+    }
+
+    public Door stringToDoor(String doorName){
+        return UserInput.stringToDoorWithoutMap(doorName, map);
     }
 
     
@@ -67,8 +71,11 @@ public class Game{
             Room currentRoom = player.getRoom();
             System.out.println(player);
             Room clownCurrentRoom = clown.getRoom();
+            //System.out.println(map.getRoom(5).getDoor());
+            //System.out.println(map.fridgeDoor);
+            //System.out.println(map.fridgeDoor.printThingys());
             System.out.println("You are still playing. Follow the instructions if you want to win/lose...");
-            System.out.println("clownSameRoom?");
+            //System.out.println("clownSameRoom?");
             System.out.println(currentRoom.getDescription());
              System.out.println("check for where player is:" + currentRoom); ////check number room for now
             System.out.println("check for what inventory is:" + player.getInventory()); ////check
@@ -93,6 +100,10 @@ public class Game{
                     stillPlaying = false;
                     status = false;
                 }
+            if(player.getRoom().getName().equals("19")){
+                stillPlaying = false;
+
+            }
 
         } while (stillPlaying);
 

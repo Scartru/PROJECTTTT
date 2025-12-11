@@ -7,10 +7,10 @@ class Player extends Person {
     public Player(String name, Room room) { 
         super(name, room); 
         this.inventory = new HashMap<>();
-        inventory.put("fridgekey", false);
-        inventory.put("cagekey", false);
-        inventory.put("towerkey", false);
-        inventory.put("crowbar", false);
+        inventory.put("fridgekey", true);
+        inventory.put("cagekey", true);
+        inventory.put("towerkey", true);
+        inventory.put("crowbar", true);
     }
 
     public HashMap<String, Boolean> getInventory() {
@@ -48,6 +48,7 @@ class Player extends Person {
      */
     public void playerGrab(String name){
         if (inventory.containsKey(name)){
+            System.out.println(room.getObject());
             if (name.equals(room.getObject())){
                 inventory.put(name, true);
                 room.removeObject(name);

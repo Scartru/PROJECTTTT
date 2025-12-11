@@ -19,7 +19,7 @@ public class UserInput {
         String verb;
         String noun;
         List<String> commands = new ArrayList<>(Arrays.asList("grab", "drop", "go", "open"));
-        List<String> objects = new ArrayList<>(Arrays.asList("crowbar", "fridgeKey", "fridgekey", "cageKey", "cagekey", "towerKey", "towerkey", "door", "north", "west", "east", "south"));
+        List<String> objects = new ArrayList<>(Arrays.asList("crowbar", "fridgeKey", "fridgekey", "cageKey", "cagekey", "towerKey", "towerkey", "door", "north", "west", "east", "south", "towerdoor", "cagedoor", "fridgedoor", "manhole"));
         
         if (wordlist.size() != 2) {
             System.out.println("Only 2 word commands allowed!");
@@ -94,23 +94,32 @@ public class UserInput {
             }
         }
         if(verb.equals("open")){
-            if (noun.equals("towerdoor")||noun.equals("cagedoor")||noun.equals("fridgedoor")){
+            if (noun.equals("towerdoor")||noun.equals("cagedoor")||noun.equals("fridgedoor")||noun.equals("manhole")){
                 if(noun.equals("towerdoor")){
-                    System.out.println("You are opening the  tower door");
-                    game.unlockDoor(noun, );
+                    System.out.println("You are opening the tower door");
+                    game.unlockDoor(game.stringToDoor(noun), "towerdoor");
+                }
                 if(noun.equals("cagedoor")){
-                    System.out.println("You are opening the  tower door");
-                    game.unlockDoor();
+                    System.out.println("You are opening the  cage door");
+                    game.unlockDoor(game.stringToDoor(noun), "cagedoor");
+                }
                 if(noun.equals("fridgedoor")){
-                    System.out.println("You are opening the  tower door");
-                    game.unlockDoor();
+                    System.out.println("You are opening the  fridge door");
+                    game.unlockDoor(game.stringToDoor(noun), "fridgedoor");
+                }
+                if(noun.equals("manhole")){
+                    System.out.println("You are opening the manhole");
+                    game.unlockDoor(game.stringToDoor(noun), "manhole");
+                }
             }else{
                 System.out.println("Please enter a valid thing to open.");
             }
         }
-        }
+    
+    
+
         if(verb.equals("grab")){
-            if(noun.equals("fridgekey")||noun.equals("cagekey")||noun.equals("towerkey")||noun.equals("crowbar"))
+            if(noun.equals("fridgekey")||noun.equals("cagekey")||noun.equals("towerkey")||noun.equals("crowbar")){
                 System.out.println("You are grabbing "+noun);
                     game.grab(noun);
             }else{
@@ -118,7 +127,7 @@ public class UserInput {
             }
             }
         }
-}
+
     
 
     
@@ -152,11 +161,21 @@ public class UserInput {
         }
     }
 
-    public static Door stringToDoor(String doorName){
+    public static Door stringToDoorWithoutMap(String doorName, Map map){
         if (doorName.equals("fridgedoor")){
-            return .fridgeDoor;
+            return map.fridgeDoor;
+        }
+        if(doorName.equals("cagedoor")){
+            return map.cageDoor;
+        }
+        if(doorName.equals("towerdoor")){
+            return map.towerDoor;
+        }else{
+            return map.manHole;
         }
     }
+
+
 
     public  void main(String[] args) throws IOException {
         BufferedReader in;
@@ -170,4 +189,5 @@ public class UserInput {
         
 }
 }
+
 
