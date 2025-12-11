@@ -17,4 +17,26 @@ class Clown extends Person {
         moveTo( chosen, map);
     }
 
+    /**
+     * Overloading the method in person so that the clown does not print for every wall they run into
+     */
+    public int moveTo(Direction dir, Map map) {
+        Room r = this.room;
+        int go = -1;
+    // System.out.println("HIIII PERSON");
+    switch (dir) {
+        case NORTH -> go = r.getN();
+        case EAST  -> go = r.getE();
+        case SOUTH -> go = r.getS();
+        case WEST  -> go = r.getW();
+    }
+
+    if (go != -1) {
+        r = map.getRoom(go);
+        this.setRoom(r);
+        // System.out.println(this.room);
+        return go;
+    }
+    return go;
+}
 }

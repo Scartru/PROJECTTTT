@@ -11,7 +11,7 @@ class Person {
     public Person(String name){
         this.name = name;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -32,7 +32,7 @@ class Person {
     public int moveTo(Direction dir, Map map) {
     Room r = this.room;
     int go = -1;
-    System.out.println("HIIII PERSON");
+    // System.out.println("HIIII PERSON");
     switch (dir) {
         case NORTH -> go = r.getN();
         case EAST  -> go = r.getE();
@@ -43,11 +43,11 @@ class Person {
     if (go != -1) {
         r = map.getRoom(go);
         this.setRoom(r);
-        System.out.println(this.room);
+        // System.out.println(this.room);
         return go;
     }
 
-    System.out.println("rcant exit");
+    System.out.println("Can't move!");
     return go;
 }
 

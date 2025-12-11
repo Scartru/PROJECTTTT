@@ -13,7 +13,7 @@ public class Game{
 
     public Game(){
         this.map = new Map();
-        this.player = new Player("Player", map.getRoom(17));
+        this.player = new Player("Player", map.getRoom(0));
         this.clown = new Clown("Clown", map.getRoom(9));
     }
 
@@ -67,9 +67,9 @@ public class Game{
         // Clown clown = new Clown("Clown", map.getRoom(10));
         // System.out.println(player);
         System.out.println("A clown is looking for you... Escape!!!");
-        do { 
+        do {
             Room currentRoom = player.getRoom();
-            System.out.println(player);
+            // System.out.println(player);
             Room clownCurrentRoom = clown.getRoom();
             //System.out.println(map.getRoom(5).getDoor());
             //System.out.println(map.fridgeDoor);
@@ -77,8 +77,8 @@ public class Game{
             System.out.println("You are still playing. Follow the instructions if you want to win/lose...");
             //System.out.println("clownSameRoom?");
             System.out.println(currentRoom.getDescription());
-             System.out.println("check for where player is:" + currentRoom); ////check number room for now
-            System.out.println("check for what inventory is:" + player.getInventory()); ////check
+            //  System.out.println("check for where player is:" + currentRoom); ////check number room for now
+            // System.out.println("check for what inventory is:" + player.getInventory()); ////check
 
             
             waitingForWords(in, game);
@@ -86,17 +86,17 @@ public class Game{
             ///updates clown
             ///  ////check number room for now
             clown.moveRandomly(map);
-            System.out.println("counter" + counter);
+            // System.out.println("counter" + counter);
             if(counter == 0){
                 if(player.getRoom() == clown.getRoom()) {
                         counter = 1;
-                        System.out.println("Same room:" + clown.getRoom());
+                        System.out.println("UH OH! The clown is also in room " + clown.getRoom()+" with you. RUN!");
                     }else{
                         counter = 0;
-                        System.out.println("NOt same room:" +clown.getRoom());
+                        // System.out.println("NOt same room:" +clown.getRoom());
                     }
                 }else{
-                    System.out.println("The clown caught you lol");
+                    System.out.println("The clown caught you hahaahahah");
                     stillPlaying = false;
                     status = false;
                 }

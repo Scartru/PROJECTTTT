@@ -64,7 +64,7 @@ public class UserInput {
                 ok = "You must enter a command";
             } else {
                 wordList = wordList(lowstr);
-                wordList.forEach((astr) -> System.out.println(astr));
+                // wordList.forEach((astr) -> System.out.println(astr));
                 parseCommand(wordList, game);
             }
         }
@@ -76,7 +76,7 @@ public class UserInput {
     public static void completeAction(String Verb, String Noun, Game game){
         String verb = Verb;
         String noun = Noun;
-        System.out.println(verb);
+        // System.out.println(verb);
         if (verb.equals("go")){
             if (noun.equals("north")||noun.equals("south")|| noun.equals("east")|| noun.equals("west")){
                 game.move(stringToDirection(noun));

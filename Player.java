@@ -7,10 +7,10 @@ class Player extends Person {
     public Player(String name, Room room) { 
         super(name, room); 
         this.inventory = new HashMap<>();
-        inventory.put("fridgekey", true);
-        inventory.put("cagekey", true);
-        inventory.put("towerkey", true);
-        inventory.put("crowbar", true);
+        inventory.put("fridgekey", false);
+        inventory.put("cagekey", false);
+        inventory.put("towerkey", false);
+        inventory.put("crowbar", false);
     }
 
     public HashMap<String, Boolean> getInventory() {

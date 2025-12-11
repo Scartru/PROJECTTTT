@@ -33,8 +33,6 @@ class Door{
 
     public void unlock(String doorName, Map map, Room room, HashMap<String, Boolean> inventory) { 
         if(room.getHasDoor()){
-            System.out.println("TESTTTTT:"+room.getDoor());
-            System.out.println(room.getDoor().getName());
             if(room.getDoor().getName().equals(doorName)){
                 if(room.getDoor().isLocked()){
                     if(inventory.get(room.getDoor().key)){
@@ -59,27 +57,27 @@ class Door{
 
 
     private void setExit(Room room, String dir, int target){
-         System.out.println("1:" + room.getN());
-    System.out.println(room.getE());
-    System.out.println(room.getS());
-    System.out.println(room.getW());
-        System.out.println(room + "\n" + dir + "\n" + target);
+    // System.out.println("1:" + room.getN());
+    // System.out.println(room.getE());
+    // System.out.println(room.getS());
+    // System.out.println(room.getW());
+        // System.out.println(room + "\n" + dir + "\n" + target);
         switch (dir) {
         case "NORTH" -> room.setN(target);
         case "EAST"  -> room.setE(target);
         case "SOUTH" -> room.setS(target);
         case "WEST"  -> room.setW(target);
     }
-    System.out.println("2:" + room.getN());
-    System.out.println(room.getE());
-    System.out.println(room.getS());
-    System.out.println(room.getW());
+    // System.out.println("2:" + room.getN());
+    // System.out.println(room.getE());
+    // System.out.println(room.getS());
+    // System.out.println(room.getW());
 } 
 
 
-    public String printThingys(){
-        return (name +"\n" + direction +"\n" + room1 +"\n" + key);
-    }
+//     public String printThingys(){
+//         return (name +"\n" + direction +"\n" + room1 +"\n" + key);
+//     }
 }
     
 
