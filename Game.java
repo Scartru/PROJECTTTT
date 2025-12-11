@@ -43,19 +43,26 @@ public class Game{
             Room currentRoom = player.getRoom();
             Room clownCurrentRoom = clown.getRoom();
             System.out.println("You are still playing. Follow the instructions if you want to win/lose...");
-            System.out.println("clownSameRoom?");
+            System.out.println("check for where player is:" + currentRoom); ////check number room for now
             System.out.println(currentRoom.getDescription());
+            System.out.println("check for what inventory is:" + player.getInventory()); ////check
 
             UserInput.waitingForWords(in, this);
             ///single player action hsappens in parsing whatever class 
             ///updates clown
             clown.moveRandomly(map);
+            System.out.println("check for where clown is:" + clown.getRoom()); //// check
+            
             
             if(counter == 0){
                 if(player.getRoom() == clown.getRoom()) {
                         counter = 1;
+                    System.out.println("the clown is smilin at cha :)");
+                   
                     }else{
                         counter = 0;
+                    System.out.println("check :no clown here"); ////check
+                   
                     }
                 }else{
                     System.out.println("The clown caught you lol");
