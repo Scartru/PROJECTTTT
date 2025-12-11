@@ -1,10 +1,9 @@
-import java.util.*;
-import java.io.IOException;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-public class Game extends UserInput{ 
+public class Game{
 
     private Map map;
     private Player player;
@@ -13,14 +12,18 @@ public class Game extends UserInput{
     private int counter = 0;
 
     public Game(){
-        Map map = new Map();
-        Player player = new Player("Player", map.getRoom(0));
-        Clown clown = new Clown("Clown", map.getRoom(10));
-  
+        this.map = new Map();
+        this.player = new Player("Player", map.getRoom(0));
+        this.clown = new Clown("Clown", map.getRoom(10));
     }
 
-    public static void main(String[] args) throws IOException{
+    public void move(Direction direction){
+        player.moveTo(direction, map);
+    }
+
+    public void main(String[] args) throws IOException{
         Game game = new Game();
+        System.out.println(this.player);
         game.run();
     }
         
@@ -29,11 +32,11 @@ public class Game extends UserInput{
         BufferedReader in;
         in = new BufferedReader(new InputStreamReader(System.in));
         String userResponse = "";
-
-        Map map = new Map();
-        Player player = new Player("Player", map.getRoom(0));
-        Clown clown = new Clown("Clown", map.getRoom(10));
-
+        
+        // Map map = new Map();
+        // Player player = new Player("Player", map.getRoom(0));
+        // Clown clown = new Clown("Clown", map.getRoom(10));
+        System.out.println(this.player);
         System.out.println("A clown is looking for you... Escape!!!");
             
         do { 
@@ -43,14 +46,14 @@ public class Game extends UserInput{
             System.out.println("clownSameRoom?");
             System.out.println(currentRoom.getDescription());
 
-            UserInput.waitingForWords(in);
+            UserInput.waitingForWords(in, this);
             ///single player action hsappens in parsing whatever class 
             ///updates clown
             clown.moveRandomly(map);
             
             if(counter == 0){
                 if(player.getRoom() == clown.getRoom()) {
-                     counter = 1;
+                        counter = 1;
                     }else{
                         counter = 0;
                     }

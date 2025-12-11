@@ -4,15 +4,18 @@
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
 public class UserInput {
+    Game game;
 
-    public static void parseCommand(List<String> wordlist) {
+    public UserInput(Game game){
+        this.game = game;
+    }
+    public static void parseCommand(List<String> wordlist, Game game) {
         String verb;
         String noun;
         List<String> commands = new ArrayList<>(Arrays.asList("grab", "drop", "go", "open"));
@@ -28,7 +31,7 @@ public class UserInput {
                 if (!commands.contains(verb)) {
                     System.out.println(verb + " is not a known verb!");
                 }else{
-                    completeAction(verb, noun);
+                    completeAction(verb, noun, game);
                 }
             }else{
                 System.out.println(noun + " is not a known noun!");
@@ -51,7 +54,7 @@ public class UserInput {
         return strlist;
     }
 
-    public static String runCommand(String inputstr) {
+    public static String runCommand(String inputstr, Game game) {
         List<String> wordList;
         String ok = "ok";
         String lowstr = inputstr.trim().toLowerCase();
@@ -62,7 +65,7 @@ public class UserInput {
             } else {
                 wordList = wordList(lowstr);
                 wordList.forEach((astr) -> System.out.println(astr));
-                parseCommand(wordList);
+                parseCommand(wordList, game);
             }
         }
         return ok;
@@ -70,29 +73,44 @@ public class UserInput {
 
     //grab, drop, open, 
 
-    public static void completeAction(String Verb, String Noun){
+    public static void completeAction(String Verb, String Noun, Game game){
         String verb = Verb;
         String noun = Noun;
         System.out.println(verb);
         if (verb.equals("go")){
-            if (noun.equals("north")||noun=="south"|| noun=="east"|| noun=="west"){
-                //insert go action here 
+            if (noun.equals("north")||noun.equals("south")|| noun.equals("east")|| noun.equals("west")){
+                game.move(stringToDirection(noun));
                 System.out.println("You are going "+noun);
             }else{
                 System.out.println("Please enter a valid direction when saying a way to go.");
             }
         }
+        if (verb.equals("drop")){
+            if (noun.equals("crowbar")||noun.equals("green key")||noun.equals("red key")||noun.equals("blue key")){
+                System.out.println("You are dropping the "+noun);
+            }else{
+                System.out.println("Please enter a valid object when saying an object to drop.");
+            }
         }
+        if(verb.equals("open")){
+            if (noun.equals("door")){
+                System.out.println("You are opening the door");
+            }else{
+                System.out.println("Please enter a valid thing to open.");
+            }
+        }
+    
+    }
 
-    public static void waitingForWords(BufferedReader br)throws IOException{
+    public static void waitingForWords(BufferedReader br, Game game)throws IOException{
         String input;
-        String output;
+        // String output;
 
         do {
             System.out.print("*** ");
             input = br.readLine();
-            output = runCommand(input);
-            System.out.println(output);
+            runCommand(input, game);
+            // System.out.println(output);
         } while (!"q".equals(input));
     }
     
@@ -102,13 +120,38 @@ public class UserInput {
     //             System.out.println("Please enter a valid object to grab.");
     //     }
     
+    /**
+     * This, to aid in movement of the player, will convert a string that the user inputs 
+     * @param string
+     * @return
+     */
+    public static Direction stringToDirection(String string){
+        Direction[] dirs = Direction.values();
+        if (string.equals("north")){
+            return dirs[0];
+        }
+        if(string.equals("east")){
+            return dirs[1];
+        }
+        if(string.equals("south")){
+            return dirs[2];
+        }
+        if(string.equals("west")){
+            return dirs[3];
+        }else{
+            return dirs[4];
+        }
+    }
 
-    public static void main(String[] args) throws IOException {
+    public  void main(String[] args) throws IOException {
         BufferedReader in;
         
 
-        in = new BufferedReader(new InputStreamReader(System.in));
-        waitingForWords(in);
+        // in = new BufferedReader(new InputStreamReader(System.in));
+        // Game newGame = new Game();
+        // waitingForWords(in, newGame);
+        // completeAction("open","door");
+        // System.out.println(stringToDirection("south"));
         
 }
 }
