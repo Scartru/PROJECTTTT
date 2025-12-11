@@ -21,6 +21,20 @@ public class Game{
         player.moveTo(direction, map);
     }
 
+    public void drop(String object){
+        player.playerDrop(object, player.getRoom());
+    }
+
+    public void grab(String object){
+        player.playerGrab(object);
+    }
+
+    public void unlockDoor(Door door, String keyName){
+        door.unlock(keyName, map, player.getRoom(), player.getInventory());
+    }
+
+    
+
     public void main(String[] args) throws IOException{
         // Game game = new Game();
         run(this);

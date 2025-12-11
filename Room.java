@@ -6,6 +6,7 @@ public class Room extends Definition {
     private int w;
     private String object;
     private Door door;
+    private Boolean hasDoor = false;
 
 
     public Room(String name, String description, int n, int e, int s, int w, String object){
@@ -25,6 +26,7 @@ public class Room extends Definition {
         this.w= w;
         this.object = object;
         this.door = door;
+        this.hasDoor = true;
         
     }
 
@@ -64,13 +66,26 @@ public class Room extends Definition {
         this.object = object;
     }
 
+    public String getObject() {
+        return object;
+    }
+
     public void removeObject(String object){
         this.object = "";
     }
 
+    public Door getDoor(){
+        return door;
+    }
+
+
     @Override
     public String toString(){
         return super.getName();
+    }
+
+    public Boolean getHasDoor() {
+        return hasDoor;
     }
 
 

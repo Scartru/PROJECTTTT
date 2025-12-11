@@ -19,7 +19,7 @@ public class UserInput {
         String verb;
         String noun;
         List<String> commands = new ArrayList<>(Arrays.asList("grab", "drop", "go", "open"));
-        List<String> objects = new ArrayList<>(Arrays.asList("crowbar", "key", "door", "north", "west", "east", "south"));
+        List<String> objects = new ArrayList<>(Arrays.asList("crowbar", "fridgeKey", "fridgekey", "cageKey", "cagekey", "towerKey", "towerkey", "door", "north", "west", "east", "south"));
         
         if (wordlist.size() != 2) {
             System.out.println("Only 2 word commands allowed!");
@@ -86,21 +86,40 @@ public class UserInput {
             }
         }
         if (verb.equals("drop")){
-            if (noun.equals("crowbar")||noun.equals("green key")||noun.equals("red key")||noun.equals("blue key")){
+            if (noun.equals("crowbar")||noun.equals("fridgeKey")||noun.equals("fridgekey")||noun.equals("cageKey")||noun.equals("cagekey")||noun.equals("towerKey")||noun.equals("towerkey")){
                 System.out.println("You are dropping the "+noun);
+                game.drop(noun);
             }else{
                 System.out.println("Please enter a valid object when saying an object to drop.");
             }
         }
         if(verb.equals("open")){
-            if (noun.equals("door")){
-                System.out.println("You are opening the door");
+            if (noun.equals("towerdoor")||noun.equals("cagedoor")||noun.equals("fridgedoor")){
+                if(noun.equals("towerdoor")){
+                    System.out.println("You are opening the  tower door");
+                    game.unlockDoor(noun, );
+                if(noun.equals("cagedoor")){
+                    System.out.println("You are opening the  tower door");
+                    game.unlockDoor();
+                if(noun.equals("fridgedoor")){
+                    System.out.println("You are opening the  tower door");
+                    game.unlockDoor();
             }else{
                 System.out.println("Please enter a valid thing to open.");
             }
         }
+        }
+        if(verb.equals("grab")){
+            if(noun.equals("fridgekey")||noun.equals("cagekey")||noun.equals("towerkey")||noun.equals("crowbar"))
+                System.out.println("You are grabbing "+noun);
+                    game.grab(noun);
+            }else{
+                System.out.println("Please enter a valid object to grab.");
+            }
+            }
+        }
+}
     
-    }
 
     
     
@@ -130,6 +149,12 @@ public class UserInput {
             return dirs[3];
         }else{
             return dirs[4];
+        }
+    }
+
+    public static Door stringToDoor(String doorName){
+        if (doorName.equals("fridgedoor")){
+            return .fridgeDoor;
         }
     }
 
