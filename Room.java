@@ -88,11 +88,4 @@ public class Room extends Definition {
         return hasDoor;
     }
 
-
-    public static void main(String[] args) {
-        Room cool = new Room("0Port-a-Potty", "Stinky as hell here... why is there no door...", -1, 2, -1, -1, "");
-        System.out.println(cool.getE());
-        cool.setE(-1);
-        System.out.println(cool.getE());
-    }
 }
