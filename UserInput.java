@@ -102,17 +102,7 @@ public class UserInput {
     
     }
 
-    public static void waitingForWords(BufferedReader br, Game game)throws IOException{
-        String input;
-        // String output;
-
-        do {
-            System.out.print("*** ");
-            input = br.readLine();
-            runCommand(input, game);
-            // System.out.println(output);
-        } while (!"q".equals(input));
-    }
+    
     
     //     if(verb=="grab"){
     //         //insert grab action here

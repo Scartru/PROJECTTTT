@@ -1,7 +1,7 @@
 public class Definition {
 
-    private String name;
-    private String description;
+    protected String name;
+    protected String description;
 
     /**
      * @param name

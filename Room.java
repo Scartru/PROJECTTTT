@@ -8,7 +8,7 @@ public class Room extends Definition {
     private Door door;
 
 
-     public Room(String name, String description, int n, int e, int s, int w, String object){
+    public Room(String name, String description, int n, int e, int s, int w, String object){
         super(name, description);
         this.n= n;
         this.e= e;
@@ -66,6 +66,11 @@ public class Room extends Definition {
 
     public void removeObject(String object){
         this.object = "";
+    }
+
+    @Override
+    public String toString(){
+        return super.getName();
     }
 
 

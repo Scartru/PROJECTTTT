@@ -1,10 +1,10 @@
 class Door extends Definition{
-    private final String color;
-    private final String direction;
-    private final String returnDirection;
-    private final int room1;
-    private final int room2;
-    private final String key;
+    private String color;
+    private String direction;
+    private String returnDirection;
+    private int room1;
+    private int room2;
+    private String key;
     private Boolean isLocked;
 
     public Door(String name, String description, String direction, String returnDirection, int room1, int room2, String key) {

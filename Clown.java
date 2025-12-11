@@ -9,9 +9,9 @@ class Clown extends Person {
     }
 
     public void moveRandomly(Map map){
-        Direction[] dirs = Direction.values();
-        Direction chosen = dirs[rand.nextInt(dirs.length)];
-        moveTo(chosen, map);
+       Direction[] dirs = Direction.values();
+       Direction chosen = dirs[rand.nextInt(dirs.length)];
+        moveTo( chosen, map);
     }
 
 }

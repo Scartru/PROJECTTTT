@@ -22,47 +22,57 @@ public class Game{
     }
 
     public void main(String[] args) throws IOException{
-        Game game = new Game();
-        System.out.println(this.player);
-        game.run();
+        // Game game = new Game();
+        run(this);
+    }
+
+    public static void waitingForWords(BufferedReader br, Game game)throws IOException{
+        String input;
+        // String output;
+
+
+            System.out.print("*** ");
+            input = br.readLine();
+            UserInput.runCommand(input, game);
+            // System.out.println(output);
     }
         
-    public void run() throws IOException{
+    public void run(Game game) throws IOException{
         boolean stillPlaying = true;
         BufferedReader in;
         in = new BufferedReader(new InputStreamReader(System.in));
         String userResponse = "";
+        String input;
         
         // Map map = new Map();
         // Player player = new Player("Player", map.getRoom(0));
         // Clown clown = new Clown("Clown", map.getRoom(10));
-        System.out.println(this.player);
+        // System.out.println(player);
         System.out.println("A clown is looking for you... Escape!!!");
-            
         do { 
             Room currentRoom = player.getRoom();
+            System.out.println(player);
             Room clownCurrentRoom = clown.getRoom();
             System.out.println("You are still playing. Follow the instructions if you want to win/lose...");
-            System.out.println("check for where player is:" + currentRoom); ////check number room for now
+            System.out.println("clownSameRoom?");
             System.out.println(currentRoom.getDescription());
+             System.out.println("check for where player is:" + currentRoom); ////check number room for now
             System.out.println("check for what inventory is:" + player.getInventory()); ////check
 
-            UserInput.waitingForWords(in, this);
+            
+            waitingForWords(in, game);
             ///single player action hsappens in parsing whatever class 
             ///updates clown
+            ///  ////check number room for now
             clown.moveRandomly(map);
-            System.out.println("check for where clown is:" + clown.getRoom()); //// check
-            
-            
+            System.out.println("counter" + counter);
             if(counter == 0){
                 if(player.getRoom() == clown.getRoom()) {
                         counter = 1;
-                    System.out.println("the clown is smilin at cha :)");
-                   
+                        System.out.println("Same room:" + clown.getRoom());
                     }else{
                         counter = 0;
-                    System.out.println("check :no clown here"); ////check
-                   
+                        System.out.println("NOt same room:" +clown.getRoom());
                     }
                 }else{
                     System.out.println("The clown caught you lol");

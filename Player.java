@@ -1,24 +1,26 @@
-import java.util.Hashtable;
+import java.util.HashMap;
+
 
 class Player extends Person {
-    private Hashtable<String, Boolean> inventory;
+    private HashMap<String, Boolean> inventory;
 
     public Player(String name, Room room) { 
         super(name, room); 
-        this.inventory = new Hashtable<String, Boolean>();
+        this.inventory = new HashMap<>();
         inventory.put("Red Key", false);
         inventory.put("Green Key", false);
         inventory.put("Blue Key", false);
         inventory.put("Crowbar", false);
     }
 
-    public Hashtable<String, Boolean> getInventory() {
+    public HashMap<String, Boolean> getInventory() {
         return inventory;
     }
 
-    public void setInventory(Hashtable<String, Boolean> inventory) {
+    public void setInventory(HashMap<String, Boolean> inventory) {
         this.inventory = inventory;
     }
+
 
 
     public void drop(String name, Room room){
