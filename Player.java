@@ -45,12 +45,12 @@ class Player extends Person {
             if (inventory.get(name)){
                 inventory.put(name, false);
                 room.addObject(name);
-                System.out.println("You dropped the "+name);
+                System.out.println("You dropped the "+name+"\n");
             }else{
-                System.out.println("You do not currently have this item in your inventory.");
+                System.out.println("You do not currently have this item in your inventory. \n");
             }
         }else{
-            System.out.println("This item does not exist.");
+            System.out.println("This item does not exist. \n");
         }
 
     }
@@ -67,11 +67,11 @@ class Player extends Person {
                 room.removeObject(name);
                 System.out.println("Current Inventory:"+this.getInventory());
             }else{
-                System.out.println("This item is not in the room.");
+                System.out.println("This item is not in the room. \n");
             }
             
         }else{
-            System.out.println("This item does not exist.");
+            System.out.println("This item does not exist. \n");
 
         }
     }

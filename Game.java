@@ -82,7 +82,7 @@ public class Game{
         // String output;
 
 
-            System.out.print("*** ");
+            System.out.print("> ");
             input = br.readLine();
             UserInput.runCommand(input, game);
             // System.out.println(output);
@@ -98,7 +98,7 @@ public class Game{
         BufferedReader in;
         in = new BufferedReader(new InputStreamReader(System.in));
         
-        System.out.println("A clown is looking for you... Escape!!!");
+        System.out.println("\n A clown is looking for you... Escape!!! \n");
         
         do {
             Room currentRoom = player.getRoom();
@@ -114,12 +114,12 @@ public class Game{
             if(counter == 0){
                 if(player.getRoom() == clown.getRoom()) {
                         counter = 1;
-                        System.out.println("UH OH! The clown is also in room " + clown.getRoom()+" with you. RUN!");
+                        System.out.println("UH OH! The clown is also in room " + clown.getRoom()+" with you. RUN! \n");
                     }else{
                         counter = 0;
                     }
                 }else{
-                    System.out.println("The clown caught you hahaahahah");
+                    System.out.println("The clown caught you hahaahahah \n");
                     stillPlaying = false;
                     status = false;
                 }

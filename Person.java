@@ -66,7 +66,7 @@ class Person {
         return go;
     }
 
-    System.out.println("You can't move in this direction.");
+    System.out.println("\n You can't move in this direction. \n");
     return go;
 }
 

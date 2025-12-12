@@ -26,19 +26,19 @@ public class UserInput {
         List<String> objects = new ArrayList<>(Arrays.asList("crowbar", "fridgeKey", "fridgekey", "cageKey", "cagekey", "towerKey", "towerkey", "door", "north", "west", "east", "south", "towerdoor", "cagedoor", "fridgedoor", "manhole"));
         
         if (wordlist.size() != 2) {
-            System.out.println("Only 2 word commands allowed!");
+            System.out.println("\n Only 2 word commands allowed! \n");
         } else {
             verb = wordlist.get(0);
             noun = wordlist.get(1);
             if (objects.contains(noun)) {
                 
                 if (!commands.contains(verb)) {
-                    System.out.println(verb + " is not a known verb!");
+                    System.out.println("\n" + verb + " is not a known verb! \n");
                 }else{
                     completeAction(verb, noun, game);
                 }
             }else{
-                System.out.println(noun + " is not a known noun!");
+                System.out.println("\n"+noun + " is not a known noun! \n");
             }
             }
             
@@ -76,7 +76,7 @@ public class UserInput {
         
         if (!lowstr.equals("q")) {
             if (lowstr.equals("")) {
-                ok = "You must enter a command";
+                ok = "\n You must enter a command \n";
             } else {
                 wordList = wordList(lowstr);
                 // wordList.forEach((astr) -> System.out.println(astr));
@@ -100,40 +100,49 @@ public class UserInput {
         // System.out.println(verb);
         if (verb.equals("go")){
             if (noun.equals("north")||noun.equals("south")|| noun.equals("east")|| noun.equals("west")){
+                System.out.println("");
                 game.move(stringToDirection(noun));
                 // System.out.println("You are going "+noun);
             }else{
-                System.out.println("Please enter a valid direction when saying a way to go.");
+                System.out.println("Please enter a valid direction when saying a way to go. \n");
             }
         }
         if (verb.equals("drop")){
             if (noun.equals("crowbar")||noun.equals("fridgeKey")||noun.equals("fridgekey")||noun.equals("cageKey")||noun.equals("cagekey")||noun.equals("towerKey")||noun.equals("towerkey")){
-                System.out.println("You are dropping the "+noun);
+                System.out.println("You are dropping the "+noun +"\n");
                 game.drop(noun);
+                System.out.println("");
             }else{
-                System.out.println("Please enter a valid object when saying an object to drop.");
+                System.out.println("Please enter a valid object when saying an object to drop. \n");
             }
         }
         if(verb.equals("open")){
             if (noun.equals("towerdoor")||noun.equals("cagedoor")||noun.equals("fridgedoor")||noun.equals("manhole")){
                 if(noun.equals("towerdoor")){
-                    System.out.println("You are opening the tower door");
+                    System.out.println("\n You are opening the tower door \n");
                     game.unlockDoor(game.stringToDoor(noun), "towerdoor");
+                    System.out.println("");
                 }
                 if(noun.equals("cagedoor")){
-                    System.out.println("You are opening the  cage door");
+                    System.out.println("\n You are opening the  cage door \n");
                     game.unlockDoor(game.stringToDoor(noun), "cagedoor");
+                    System.out.println("");
+
                 }
                 if(noun.equals("fridgedoor")){
-                    System.out.println("You are opening the  fridge door");
+                    System.out.println("\n You are opening the  fridge door \n");
                     game.unlockDoor(game.stringToDoor(noun), "fridgedoor");
+                    System.out.println("");
+
                 }
                 if(noun.equals("manhole")){
-                    System.out.println("You are opening the manhole");
+                    System.out.println("\n You are opening the manhole \n");
                     game.unlockDoor(game.stringToDoor(noun), "manhole");
+                    System.out.println("");
+
                 }
             }else{
-                System.out.println("Please enter a valid thing to open.");
+                System.out.println("\n Please enter a valid thing to open. \n");
             }
         }
     
@@ -141,10 +150,11 @@ public class UserInput {
 
         if(verb.equals("grab")){
             if(noun.equals("fridgekey")||noun.equals("cagekey")||noun.equals("towerkey")||noun.equals("crowbar")){
-                System.out.println("You are grabbing "+noun);
+                System.out.println("You are grabbing "+noun+"\n");
                     game.grab(noun);
+                    System.out.println("");
             }else{
-                System.out.println("Please enter a valid object to grab.");
+                System.out.println("Please enter a valid object to grab. \n");
             }
             }
         }

@@ -38,16 +38,16 @@ class Door{
                     if(inventory.get(room.getDoor().key)){
                         unlock(map);
                     }else{
-                        System.out.println("You do not have the right key for this door.");
+                        System.out.println("You do not have the right key for this door. \n");
                     }
                 }else{
-                    System.out.println("The door is already open.");
+                    System.out.println("The door is already open. \n");
                 }
             }else{
-                System.out.println("This is not the correct door.");
+                System.out.println("This is not the correct door. \n");
             }
         }else{
-            System.out.println("This room does not have a door to unlock.");
+            System.out.println("This room does not have a door to unlock. \n");
         }
     }
     
