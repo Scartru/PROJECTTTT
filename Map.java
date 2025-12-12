@@ -10,6 +10,7 @@ public class Map{
     Door towerDoor = new Door("towerdoor", "EAST", "WEST", 18, 14, "towerkey");
     Door manHole = new Door("manhole", "EAST", "SOUTH",19, 17, "crowbar");
 
+    //This is the constructor for Map which initializes all of the rooms//
     public Map(){
         this.map = new ArrayList<>();
 
@@ -20,9 +21,9 @@ public class Map{
         this.map.add(new Room("4", "Ooooooo prettyyyyy yummy yummy. Balloons! Nothing tickles your little heart like a bright red soft balloon perfect for popping. Like a pimple, if you’ve hit puberty early enough to be blessed with those already. 🧏‍♀️🎈🔪 Reaching across to grab one, you spot a key in the tip jar. You could pocket a dime or two, but something about this key feels important… Where might you have seen one of these before? Wait, yes! In 3rd grade as you were playing hide and seek, where ‘helped’ your cousin hide… in the walk-in refrigerator… and then ‘accidentally’ proceeded to lock the door. Safe to say, your Roblox privilege was suspended for a month… but that fridge key and story was not one to be forgotten. You should probably grab this fridgekey… To your right, the bops of the Go Fish highlight an otherwise eerie night. Wanna head back and try your hand at fishing at ducky once more? It’ll be reel fun!", -1, 3, -1, -1, "fridgekey"));
         this.map.add(new Room("5", "its pretty cold in here. there is a cagekey on the floor. The door to the fridge to your south", -1, -1, -1, -1, "cagekey", fridgeDoor)); ///south
         this.map.add(new Room("6", "a fridge with a door stands to the north of you", -1, -1, 7, 1, "", fridgeDoor)); ////north
-        this.map.add(new Room("7", "Stinky", 6, 11, 8, 2,""));
-        this.map.add(new Room("8", "Stinky", 7, -1, 9, 3, ""));
-        this.map.add(new Room("9", "Stinky", 8, 13, 10, -1,""));
+        this.map.add(new Room("7", "To your north, you see a room with a fridgedoor. To your west, you see a courtyard. To your south you see a ferris wheel. To your east you see a ring of cages.", 6, 11, 8, 2,""));
+        this.map.add(new Room("8", "You are in the ferris wheel. To your west you see a go fish game. To your north you see a ferris wheel. To your south you see a shooting target game.", 7, -1, 9, 3, ""));
+        this.map.add(new Room("9", "To your north, you see ", 8, 13, 10, -1,""));
         this.map.add(new Room("10", "Stinky", 9, 14, -1, -1,""));
         this.map.add(new Room("11", "there is a small cagedoor to the south of you", -1, 15, -1, 7, "", cageDoor)); ////south
         this.map.add(new Room("12", "there is a tower key hanging from the middle of the cage. towerdoor exit door stands to your north", -1, -1, -1, -1, "towerkey", cageDoor)); /// north 
@@ -37,10 +38,18 @@ public class Map{
     }
 
 
+    //**
+    // This is an accessor which returns an ArrayList of rooms that make up the map so that our map can be accessible by other classes.
+    // @return map This returns the ArrayList of rooms that makes up our map
     public ArrayList<Room> getMap() {
         return map;
     }
 
+    /**
+     * This returns the room given its index within this map
+     * @param n this is the index of the room within the map
+     * @return room this is the room that is being obtained by calling a certain index in a map
+     */
     public Room getRoom(int n){
         return this.map.get(n);
     }

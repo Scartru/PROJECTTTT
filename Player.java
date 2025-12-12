@@ -4,6 +4,11 @@ import java.util.HashMap;
 class Player extends Person {
     private HashMap<String, Boolean> inventory;
 
+    /**
+     * A constructor that extends person and creates keys to add to the inventory
+     * @param name this is the name of the player
+     * @param room this is the room that the player is currently in
+     */
     public Player(String name, Room room) { 
         super(name, room); 
         this.inventory = new HashMap<>();
@@ -13,10 +18,18 @@ class Player extends Person {
         inventory.put("crowbar", false);
     }
 
+    /**
+     * This is an accessor that returns the inventory of the player
+     * @return this returns the inventory of the player
+     */
     public HashMap<String, Boolean> getInventory() {
         return inventory;
     }
 
+    /**
+     * This sets the inventory of the player to the inputted hashmap
+     * @param inventory this is the inventory that the variable inventory will be set to
+     */
     public void setInventory(HashMap<String, Boolean> inventory) {
         this.inventory = inventory;
     }

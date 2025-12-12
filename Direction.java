@@ -1,4 +1,3 @@
-
 /**
  * Represents possible directions for player movement
  */

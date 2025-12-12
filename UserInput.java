@@ -2,8 +2,6 @@
 
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,9 +10,15 @@ import java.util.StringTokenizer;
 public class UserInput {
     Game game;
 
+    // This is the constructor for this class
     public UserInput(Game game){
         this.game = game;
     }
+    /**
+     * This breaks up the list of words from the previous wordList command into noun and verb and from there, calls on another method, completeAction
+     * @param wordlist this is the list of words, which should be initialized by wordList and should only be two indeces long
+     * @param game this is the game that this UserInput class is running in
+     */
     public static void parseCommand(List<String> wordlist, Game game) {
         String verb;
         String noun;
@@ -41,6 +45,11 @@ public class UserInput {
         }
     
 
+    /**
+     * This takes the string of user input and removes all unnecessary spaces and punctuation and puts it in a list
+     * @param input this is the string that will be parsed from
+     * @return this is the resulting string that is the words as a list
+     */
     public static List<String> wordList(String input) {
         String delims = " \t,.:;?!\"'";
         List<String> strlist = new ArrayList<>();
@@ -54,6 +63,12 @@ public class UserInput {
         return strlist;
     }
 
+    /**
+     * This is the first ran function that calls takes in the input string, ensures that we do not run into errors via casing and then calls the parsecommanf from the resulting wordlist
+     * @param inputstr this is the string of user input
+     * @param game this is the game within which this command is being run
+     * @return this is the string that tells the user to input a command or accepts the command that has been entered
+     */
     public static String runCommand(String inputstr, Game game) {
         List<String> wordList;
         String ok = "ok";
@@ -73,6 +88,12 @@ public class UserInput {
 
     //grab, drop, open, 
 
+    /**
+     * This is method that takes the noun and the verb obtained from the parseCommand action and then checks each string if it matches one of the available commands. If it does, it calls that command
+     * @param Verb this is the verb string to be checked
+     * @param Noun this is the noun string to be checked
+     * @param game this is the game that this method is running in
+     */
     public static void completeAction(String Verb, String Noun, Game game){
         String verb = Verb;
         String noun = Noun;
@@ -80,7 +101,7 @@ public class UserInput {
         if (verb.equals("go")){
             if (noun.equals("north")||noun.equals("south")|| noun.equals("east")|| noun.equals("west")){
                 game.move(stringToDirection(noun));
-                System.out.println("You are going "+noun);
+                // System.out.println("You are going "+noun);
             }else{
                 System.out.println("Please enter a valid direction when saying a way to go.");
             }
@@ -161,6 +182,12 @@ public class UserInput {
         }
     }
 
+    /**
+     * This is the method that converts a user input string to a door class
+     * @param doorName this is the name of the door that was inputted by the player
+     * @param map this is the map within which the door sits
+     * @return this is the door which is the equivalent of the inputted string
+     */
     public static Door stringToDoorWithoutMap(String doorName, Map map){
         if (doorName.equals("fridgedoor")){
             return map.fridgeDoor;
@@ -177,8 +204,8 @@ public class UserInput {
 
 
 
-    public  void main(String[] args) throws IOException {
-        BufferedReader in;
+    // public  void main(String[] args) throws IOException {
+
         
 
         // in = new BufferedReader(new InputStreamReader(System.in));
@@ -188,6 +215,6 @@ public class UserInput {
         // System.out.println(stringToDirection("south"));
         
 }
-}
+
 
 
