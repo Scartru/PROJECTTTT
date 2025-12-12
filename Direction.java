@@ -1,3 +1,7 @@
+
+/**
+ * Represents possible directions for player movement
+ */
 public enum Direction {
     NORTH,
     EAST,
