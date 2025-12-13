@@ -1,0 +1,9 @@
+THE JUSTIFICATION OF THE BEAUTIFUL DESIGN:
+
+We considered using a 2d ArrayList to create the map on which the player moves. However, we decided on this method of rooms
+because it proved to be easier for both us as coders and for the user. From a coding standpoint, there would be no inherent
+association between the objects and the map. Having a system of rooms, each room can be initialized with an object. For doors
+as well, we would have been left with little option but to just remove them from the 2d array list. But, with our room option,
+our doors continue to exist and can be entered from in either direction. Pretty cool, right? This allows for our code to be
+extensible so that future coding geniuses can possibley lock doors or interact with them even after they have been opened the
+first time. From a user standpoint, it would be a pain to have to enter 'go north' for each little tile. Having a system of rooms, the 'go north' is quite a bit more meaningful, letting them enjoy the meat of the game: our lovely descriptions. 

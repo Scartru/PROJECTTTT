@@ -49,26 +49,22 @@ class Person {
      * @return int an integer to signal whether that spot on the map is occupied or not
      */
     public int moveTo(Direction dir, Map map) {
-    Room r = this.room;
-    int go = -1;
-    // System.out.println("HIIII PERSON");
-    switch (dir) {
-        case NORTH -> go = r.getN();
-        case EAST  -> go = r.getE();
-        case SOUTH -> go = r.getS();
-        case WEST  -> go = r.getW();
-    }
+        Room r = this.room;
+        int go = -1;
+        switch (dir) {
+            case NORTH -> go = r.getN();
+            case EAST  -> go = r.getE();
+            case SOUTH -> go = r.getS();
+            case WEST  -> go = r.getW();
+        }
 
-    if (go != -1) {
-        r = map.getRoom(go);
-        this.setRoom(r);
-        // System.out.println(this.room);
+        if (go != -1) {
+            r = map.getRoom(go);
+            this.setRoom(r);
+            return go;
+        }
+
+        System.out.println("\n You can't move in this direction. \n");
         return go;
     }
-
-    System.out.println("\n You can't move in this direction. \n");
-    return go;
 }
-
-    
-    }

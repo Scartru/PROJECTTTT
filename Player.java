@@ -76,5 +76,4 @@ class Player extends Person {
         }
     }
 
-    
-    }
+}

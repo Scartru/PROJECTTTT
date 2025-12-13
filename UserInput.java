@@ -40,9 +40,8 @@ public class UserInput {
             }else{
                 System.out.println("\n"+noun + " is not a known noun! \n");
             }
-            }
-            
         }
+    }
     
 
     /**
@@ -156,19 +155,9 @@ public class UserInput {
             }else{
                 System.out.println("Please enter a valid object to grab. \n");
             }
-            }
         }
+    }
 
-    
-
-    
-    
-    //     if(verb=="grab"){
-    //         //insert grab action here
-    //         if(noun=="sword")
-    //             System.out.println("Please enter a valid object to grab.");
-    //     }
-    
     /**
      * This, to aid in movement of the player, will convert a string that the user inputs 
      * @param string
@@ -211,19 +200,6 @@ public class UserInput {
             return map.manHole;
         }
     }
-
-
-
-    // public  void main(String[] args) throws IOException {
-
-        
-
-        // in = new BufferedReader(new InputStreamReader(System.in));
-        // Game newGame = new Game();
-        // waitingForWords(in, newGame);
-        // completeAction("open","door");
-        // System.out.println(stringToDirection("south"));
-        
 }
 
 

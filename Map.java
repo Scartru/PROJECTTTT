@@ -53,6 +53,4 @@ public class Map{
     public Room getRoom(int n){
         return this.map.get(n);
     }
-
-     
-    }
+}

@@ -63,9 +63,9 @@ public class Game{
     }
 
     /**
-     * runs game
+     * main calls to run game
      * @param args 
-     * @throws IOException !!!!!!!!!!!!!!!!!
+     * @throws IOException 
      */
     public void main(String[] args) throws IOException{
         // Game game = new Game();
@@ -73,23 +73,22 @@ public class Game{
     }
 
     /**
-     * @param br
-     * @param game
-     * @throws IOException !!!!!!!!!!!!!!!
+     * This starts the > for user input and opens the buffered reader
+     * @param br this is the buffered reader which takes in user input
+     * @param game this is the game inside which our methods are running
+     * @throws IOException 
      */
     public static void waitingForWords(BufferedReader br, Game game)throws IOException{
         String input;
-        // String output;
 
 
-            System.out.print("> ");
-            input = br.readLine();
-            UserInput.runCommand(input, game);
-            // System.out.println(output);
+        System.out.print("> ");
+        input = br.readLine();
+        UserInput.runCommand(input, game);
     }
 
     /**
-     * runs game 
+     * runs game
      * @param game constructed
      * @throws IOException
      */
